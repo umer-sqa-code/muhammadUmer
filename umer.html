@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="shortcut icon" href="https://i.pinimg.com/474x/76/14/ac/7614aca57de193684e6f3e862241f7c9.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio website of Muhammad Umer - Senior SQA Engineer">
+  <meta name="keywords" content="SQA Engineer, QA Portfolio, Software Testing Portfolio">
+  <meta name="author" content="Muhammad Umer">
+  <title>SQA Engineer Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
+
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid white;
+      transition: transform 0.5s ease;
+    }
+    header img:hover {
+      transform: scale(1.1) rotate(10deg);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 15px 0;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    header a {
+      background: white;
+      color: #6a11cb;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    header a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Mobile Dropdown Menu */
+    .mobile-menu-icon {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 15px 20px;
+      transition: color 0.3s ease, background 0.3s ease;
+    }
+    nav a:hover {
+      color: white;
+      background: #6a11cb;
+      border-radius: 5px;
+    }
+    .dropdown-menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      z-index: 1000;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .dropdown-menu a {
+      padding: 10px 20px;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+    .dropdown-menu a:last-child {
+      border-bottom: none;
+    }
+    .dropdown-menu.active {
+      display: flex;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    section p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Skills Grid as Buttons */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+    .skills-grid div {
+      background: #6a11cb;
+      color: white;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      cursor: pointer;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .skills-grid div:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+      background: #2575fc;
+    }
+
+    /* Portfolio Adjustments */
+    #portfolio iframe {
+      width: 100%;
+      height: 200px;
+    }
+    #portfolio p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    /* Contact Adjustments */
+    #contact p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    #contact a {
+      font-size: 1rem;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    footer p {
+      font-size: 1rem;
+    }
+    footer a {
+      color: #6a11cb;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: #2575fc;
+    }
+
+    /* Mobile Responsive Styles (320px - 425px) */
+    @media (max-width: 425px) {
+      /* Header Adjustments */
+      header {
+        padding: 20px 10px;
+      }
+      header img {
+        width: 100px;
+        height: 100px;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+      header p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+      }
+      header a {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+      }
+
+      /* Navigation Adjustments */
+      nav {
+        display: none;
+      }
+      .mobile-menu-icon {
+        display: block;
+      }
+      .dropdown-menu {
+        top: 50px;
+        right: 10px;
+      }
+      .dropdown-menu a {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+
+      /* Section Adjustments */
+      section {
+        padding: 20px 10px;
+      }
+      section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+      section p {
+        font-size: 0.9rem;
+      }
+
+      /* Skills Grid Adjustments */
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 10px;
+      }
+      .skills-grid div {
+        padding: 10px;
+        font-size: 0.8rem;
+      }
+
+      /* Portfolio Adjustments */
+      #portfolio iframe {
+        height: 150px;
+      }
+      #portfolio p {
+        font-size: 0.9rem;
+      }
+
+      /* Contact Adjustments */
+      #contact p {
+        font-size: 0.9rem;
+      }
+      #contact a {
+        font-size: 0.9rem;
+      }
+
+      /* Footer Adjustments */
+      footer {
+        padding: 10px;
+      }
+      footer p {
+        font-size: 0.8rem;
+      }
+      footer a {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://media.licdn.com/dms/image/v2/D4D03AQG73tJvX1YUjg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1705391632215?e=1744243200&v=beta&t=NIjdkbRPgXtSAZx-uqUqaDZez0LZipdnYfPsQtxaGlE" alt="Professional Headshot">
+    <h1>Muhammad Umer</h1>
+    <p>Senior SQA Engineer | Ensuring High-Quality Software, One Test at a Time</p>
+    <a href="#contact">Contact Me</a>
+
+    <!-- Hamburger Menu Icon -->
+    <div class="mobile-menu-icon" id="menuIcon">&#9776;</div>
+  </header>
+
+  <!-- Dropdown Menu -->
+  <div class="dropdown-menu" id="dropdownMenu">
+    <a href="#about">About Me</a>
+    <a href="#skills">Skills & Expertise</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- Desktop Navigation -->
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#skills">Skills & Expertise</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>🚀 Hi, I'm Muhammad Umer, a passionate Software Engineer 🖥️📱 specializing in testing web and mobile applications, especially e-commerce platforms 🛍️. With hands-on expertise in tools like Selenium 🤖, Postman 📬, JMeter 🛠️, and Appium 📲, I deliver defect-free software through rigorous functional, non-functional, and regression testing 🕵️‍♂️. Leveraging Agile methodologies 🌀, I ensure smooth API validation and efficient development workflows. ✨</p>
+  </section>
+  <section id="skills">
+    <h2>Skills & Expertise</h2>
+    <div class="skills-grid">
+      <div>Functional Testing</div>
+      <div>Automation Testing</div>
+      <div>Performance Testing</div>
+      <div>Security Testing</div>
+      <div>Selenium</div>
+      <div>JMeter</div>
+      <div>API Testing</div>
+      <div>Postman</div>
+      <div>Appium</div>
+      <div>Test Management</div>
+      <div>Regression Testing</div>
+      <div>Integration Testing</div>
+      <div>Test Cases Creation</div>
+    </div>
+  </section>
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <p>Project 1: Order Automation </p>
+    <div style="position:relative; width:100%; height:0px; padding-bottom:56.426%">
+      <iframe allow="fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/msjpvm?" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe>
+    </div>
+    <br><br>
+    <p>Project 2: Course Automation</p>
+    <div style="width: 100%; height: 0px; position: relative; padding-bottom: 56.471%;">
+      <iframe src="https://streamable.com/e/x5o96r?quality=highest" frameborder="0" width="100%" height="100%" allowfullscreen style="width: 100%; height: 100%; position: absolute;"></iframe>
+    </div>
+  </section>
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:umerk257@gmail.com">umerk257@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/muhammad-umer-b19542171/">https://www.linkedin.com/in/muhammad-umer-b19542171/</a></p>
+    <p>GitHub: <a href="https://github.com/umer-sqa-code/course-automation.git">https://github.com/umer-sqa-code/course-automation.git</a></p>
+    <p>Phone Number: <a href="tel:+923146202284">+923146202284</a></p>
+  </section>
+  <footer>
+    <p>&copy; 2023 Muhammad Umer</p>
+  </footer>
+
+  <!-- JavaScript for Dropdown Menu -->
+  <script>
+    const menuIcon = document.getElementById('menuIcon');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    menuIcon.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('active');
+    });
+
+    // Close the dropdown if clicked outside
+    document.addEventListener('click', (event) => {
+      if (!menuIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+        dropdownMenu.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>
