@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,22 +21,10 @@
             --container-width: min(1200px, 90%);
         }
 
-        .dark {
-            --primary: #00BFFF;
-            --primary-light: #1E90FF;
-            --text: #f0f0f0;
-            --bg: #121212;
-            --card-bg: #1e1e1e;
-            --nav-bg: rgba(30, 30, 30, 0.9);
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            --text-light: #aaa;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: background-color 0.3s, color 0.3s;
         }
 
         body {
@@ -186,15 +174,6 @@
             border: none;
             color: var(--text);
             font-size: 1.5rem;
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-left: 20px;
         }
 
         /* Hero Section */
@@ -623,9 +602,6 @@
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#tutorials">Tutorials</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <button class="theme-toggle" id="themeToggle">
-                        <i class="fas fa-moon"></i>
-                    </button>
                 </ul>
                 <button class="hamburger" id="hamburger">
                     <i class="fas fa-bars"></i>
@@ -870,34 +846,6 @@
                 navLinks.classList.remove('active');
                 hamburger.innerHTML = '<i class="fas fa-bars"></i>';
             });
-        });
-
-        // Dark/Light Mode Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-
-        // Check for saved theme preference or use preferred color scheme
-        const savedTheme = localStorage.getItem('theme') || 
-            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        
-        if (savedTheme === 'light') {
-            body.classList.remove('dark');
-            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        } else {
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
-
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark');
-            const isDark = body.classList.contains('dark');
-            
-            if (isDark) {
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                localStorage.setItem('theme', 'light');
-            }
         });
 
         // Typewriter Effect
