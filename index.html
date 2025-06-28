@@ -307,8 +307,25 @@
             background: var(--primary);
         }
 
-        .timeline-item:last-child::after {
-            display: none;
+        .timeline-item:last-child::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            width: 1px;
+            height: calc(100% - 15px);
+            background: var(--primary);
         }
 
         .timeline-date {
